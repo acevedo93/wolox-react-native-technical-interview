@@ -8,12 +8,8 @@
 import 'react-native-gesture-handler';
 
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Navigator} from './src/navigator/Navigator';
 
 export const App = () => {
-  return (
-    <View>
-      <Text>prueba</Text>
-    </View>
-  );
+  return <Navigator />;
 };
