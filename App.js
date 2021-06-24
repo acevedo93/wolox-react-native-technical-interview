@@ -13,7 +13,7 @@ export default class App extends Component {
   render() {
     return (
       <View>
-        <Text>Rea native component fdsaf</Text>
+        <Text>Readsadddas</Text>
       </View>
     );
   }
