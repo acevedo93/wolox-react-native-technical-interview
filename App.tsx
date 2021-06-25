@@ -1,15 +1,19 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
 import 'react-native-gesture-handler';
-
 import React from 'react';
 import {Navigator} from './src/navigator/Navigator';
+import {NavigationContainer} from '@react-navigation/native';
+import {AuthProvider} from './src/context/auth/AuthContext';
+
+const GlobalState = ({children}: {children: JSX.Element | JSX.Element[]}) => (
+  <AuthProvider>{children}</AuthProvider>
+);
 
 export const App = () => {
-  return <Navigator />;
+  return (
+    <NavigationContainer>
+      <GlobalState>
+        <Navigator />
+      </GlobalState>
+    </NavigationContainer>
+  );
 };

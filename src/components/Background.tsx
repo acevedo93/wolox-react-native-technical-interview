@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: 1000,
     height: 1200,
-    top: -400,
-    transform: [{rotate: '-70deg'}],
+    top: -150,
+    transform: [{rotate: '-40deg'}],
   },
 });
