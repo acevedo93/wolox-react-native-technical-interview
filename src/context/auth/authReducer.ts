@@ -8,7 +8,8 @@ export interface AuthState {
 type AuthAction =
   | {type: 'LOG_IN'; payload: {user: User}}
   | {type: 'ERROR'; payload: string}
-  | {type: 'LOG_OUT'};
+  | {type: 'LOG_OUT'}
+  | {type: 'CLEAR_ERROR_MESSAGE'};
 
 export const authReducer = (
   state: AuthState,
@@ -34,6 +35,11 @@ export const authReducer = (
         errorMsg: '',
         status: 'noAuth',
         user: null,
+      };
+    case 'CLEAR_ERROR_MESSAGE':
+      return {
+        ...state,
+        errorMsg: '',
       };
 
     default:

@@ -1,13 +1,14 @@
 import React, {createContext, useReducer} from 'react';
-import {User} from '../../interfaces/user';
 import {authReducer, AuthState} from './authReducer';
+import {booksApi} from '../../api/api';
+import {User} from '../../interfaces/user';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useEffect} from 'react';
 
-interface AuthContextProps {
-  logIn: () => void;
+interface AuthContextProps extends AuthState {
+  logIn: (userData: User) => Promise<any>;
   logOut: () => void;
-  errorMsg: string;
-  user: User | null;
-  status: 'loading' | 'authSuccess' | 'authError' | 'noAuth';
+  clearErrorMsg: () => void;
 }
 
 const authInitialState: AuthState = {
@@ -16,21 +17,48 @@ const authInitialState: AuthState = {
   errorMsg: '',
 };
 
-const AuthContext = createContext({} as AuthContextProps);
+export const AuthContext = createContext({} as AuthContextProps);
 
 export const AuthProvider = ({children}: any) => {
   const [state, dispatch] = useReducer(authReducer, authInitialState);
 
-  const logIn = () => {
-    //dispatch({type:'LOG_IN', payload:{user}})
+  useEffect(() => {
+    checkAuthentication();
+  }, []);
+
+  const checkAuthentication = async () => {
+    const user = await AsyncStorage.getItem('user');
+    if (!user) {
+      return dispatch({type: 'LOG_OUT'});
+    }
+    dispatch({type: 'LOG_IN', payload: {user: JSON.parse(user)}});
   };
-  const logOut = () => {};
+
+  const logIn = async (userData: User) => {
+    try {
+      const {data} = await booksApi.post<User>('/sign_in', {...userData});
+      dispatch({type: 'LOG_IN', payload: {user: data}});
+      await AsyncStorage.setItem('user', JSON.stringify(data));
+    } catch (err) {
+      console.log('error', err);
+      dispatch({type: 'ERROR', payload: 'Ocurrio un error inesperado'});
+    }
+  };
+
+  const logOut = async () => {
+    await AsyncStorage.removeItem('user');
+    return dispatch({type: 'LOG_OUT'});
+  };
+
+  const clearErrorMsg = () => dispatch({type: 'CLEAR_ERROR_MESSAGE'});
+
   return (
     <AuthContext.Provider
       value={{
         ...state,
         logIn,
         logOut,
+        clearErrorMsg,
       }}>
       {children}
     </AuthContext.Provider>

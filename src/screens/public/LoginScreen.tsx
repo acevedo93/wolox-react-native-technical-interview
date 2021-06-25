@@ -1,15 +1,14 @@
-import React from 'react';
-import {View, Text, StyleSheet, ScrollView} from 'react-native';
+import React, {useContext} from 'react';
+import {View, Text, StyleSheet, ScrollView, Alert} from 'react-native';
 import {Background} from '../../components/Background';
-import {useNavigation} from '@react-navigation/core';
 import {Logo} from '../../components/Logo';
 import {Input} from '../../components/Input';
-
 import {Btn} from '../../components/Btn';
 import {useForm} from '../../hooks/useForm';
+import {AuthContext} from '../../context/auth/AuthContext';
+import {useEffect} from 'react';
 
 export const LoginScreen = () => {
-  const navigation = useNavigation();
   const {onChange, name, lastName, email, date, termsAndConditions} = useForm({
     name: '',
     lastName: '',
@@ -17,8 +16,26 @@ export const LoginScreen = () => {
     date: '',
     termsAndConditions: false,
   });
+  const {logIn, errorMsg, clearErrorMsg} = useContext(AuthContext);
+
+  useEffect(() => {
+    if (!errorMsg.length) return;
+    Alert.alert('Login error', errorMsg, [
+      {
+        text: 'OK',
+        onPress: clearErrorMsg,
+      },
+    ]);
+  }, [errorMsg]);
+
   const handlerLogin = () => {
-    navigation.replace('HomeScreen');
+    logIn({
+      email: 'fdsa',
+      name: 'fdasf',
+      lastName: '432432',
+      id: 43143,
+      date: '12321',
+    });
   };
   return (
     <ScrollView>
@@ -49,13 +66,22 @@ export const LoginScreen = () => {
           value={email}
         />
         <Input
-          label="Edad"
+          label="Tu Cumpleaños"
           placeholder="Ingrese su edad"
           onchange={value => onChange(value, 'date')}
           type="date"
           value={date}
         />
-        <Text>CheckBox de aceptacion de terminos y condiciones</Text>
+        <View style={styles.termsAndConditionsContainer}>
+          <Input
+            label="Aceptas terminos y condiciones"
+            placeholder="Ingrese su edad"
+            onchange={value => onChange(value, 'termsAndConditions')}
+            type="checkBox"
+            value={termsAndConditions}
+          />
+        </View>
+
         <View style={styles.btnContainer}>
           <Btn disabled={false} label="Login" onPress={handlerLogin} />
         </View>
@@ -78,5 +104,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 50,
     marginBottom: 50,
+  },
+  termsAndConditionsContainer: {
+    marginTop: 20,
   },
 });

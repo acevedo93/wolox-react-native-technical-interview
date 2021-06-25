@@ -1,4 +1,4 @@
-import {Theme} from '@react-navigation/native';
+import {Theme} from './node_modules/@react-navigation/native';
 export interface ThemeState extends Theme {
     
 }

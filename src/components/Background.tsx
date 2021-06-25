@@ -8,7 +8,7 @@ export const Background = () => {
 const styles = StyleSheet.create({
   background: {
     position: 'absolute',
-    backgroundColor: 'purple',
+    backgroundColor: '#009bd6',
     flex: 1,
     width: 1000,
     height: 1200,
