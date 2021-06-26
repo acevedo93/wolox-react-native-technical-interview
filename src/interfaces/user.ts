@@ -4,4 +4,5 @@ export interface User {
   email: string;
   date: string;
   id: number;
+  termsAndConditions: boolean;
 }

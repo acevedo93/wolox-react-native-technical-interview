@@ -1,19 +1,21 @@
 import React from 'react';
-import {TouchableOpacity, Text, View, StyleSheet} from 'react-native';
+import {TouchableOpacity, Text, StyleSheet, StyleProp} from 'react-native';
+import {colors} from '../styles/colors';
 
 export interface Props {
   label: string;
   onPress: () => any;
   disabled?: boolean;
+  style?: StyleProp<any>;
 }
 
-export const Btn = ({label, onPress, disabled = false}: Props) => {
+export const Btn = ({label, onPress, disabled = false, style = {}}: Props) => {
   return (
     <TouchableOpacity
       disabled={disabled}
       onPress={onPress}
       activeOpacity={0.8}
-      style={styles.btn}>
+      style={[styles.btn, style]}>
       <Text style={[styles.btnText, {opacity: disabled ? 0.2 : 1}]}>
         {label}
       </Text>
@@ -23,7 +25,7 @@ export const Btn = ({label, onPress, disabled = false}: Props) => {
 
 const styles = StyleSheet.create({
   btn: {
-    borderColor: 'white',
+    borderColor: colors.secondary,
     borderRadius: 100,
     borderWidth: 2,
     paddingHorizontal: 20,
@@ -31,6 +33,6 @@ const styles = StyleSheet.create({
   },
   btnText: {
     fontSize: 20,
-    color: 'white',
+    color: colors.light,
   },
 });

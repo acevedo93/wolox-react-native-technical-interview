@@ -1,0 +1,27 @@
+{
+  "loginForm": {
+    "name": {
+      "label": "Name",
+      "placeholder": "Enter your name"
+    },
+    "lastName": {
+      "label": "Lastname",
+      "placeholder": "Enter your last name"
+    },
+    "email": {
+      "label": "Email",
+      "placeholder": "Enter your email",
+      "errorMsg": "Enter a valid email"
+    },
+    "date": {
+      "label": "Birthday",
+      "placeholder": "Enter your birthday"
+    },
+    "termsAndConditions": {
+      "label": "You accept terms and conditions"
+    },
+    "btnLogin": {
+      "label": "Login"
+    }
+  }
+}

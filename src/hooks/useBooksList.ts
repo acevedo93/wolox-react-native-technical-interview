@@ -9,6 +9,7 @@ export const useBooksList = () => {
 
   const loadBooks = async () => {
     const resp = await booksApi.get('/books');
+    resp.data;
   };
 
   useEffect(() => {

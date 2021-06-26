@@ -1,0 +1,27 @@
+{
+  "loginForm": {
+    "name": {
+      "label": "Nombre",
+      "placeholder": "Ingrese su nombre"
+    },
+    "lastName": {
+      "label": "Apellido",
+      "placeholder": "Ingrese su Apellido"
+    },
+    "email": {
+      "label": "Correo electronico",
+      "placeholder": "Ingrese su correo electronico",
+      "errorMsg": "Introduzca un correo electrónico válido"
+    },
+    "date": {
+      "label": "Tu Cumpleaños",
+      "placeholder": "Ingrese su Cumpleaños"
+    },
+    "termsAndConditions": {
+      "label": "aceptas términos y condiciones"
+    },
+    "btnLogin": {
+      "label": "Entrar"
+    }
+  }
+}

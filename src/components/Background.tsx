@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
+import {colors} from '../styles/colors';
 
 export const Background = () => {
   return <View style={styles.background}></View>;
@@ -8,7 +9,7 @@ export const Background = () => {
 const styles = StyleSheet.create({
   background: {
     position: 'absolute',
-    backgroundColor: '#009bd6',
+    backgroundColor: colors.primary,
     flex: 1,
     width: 1000,
     height: 1200,
