@@ -5,6 +5,7 @@ import {BookCard} from './BookCard';
 import {useRef} from 'react';
 import {Comment} from './Comment';
 import {colors} from '../styles/colors';
+import {globalStyles, BORDER_RADIUS} from '../styles/GlobalStyles';
 
 interface Props {
   comments: IComment[] | undefined;
@@ -56,6 +57,7 @@ export const CommentsList = ({comments}: Props) => {
           <Animated.View
             style={{
               ...styles.container,
+              ...globalStyles.verticalSpaces,
               transform: [{scale: objectWithAnimations.transform}],
               opacity: objectWithAnimations.opacity,
             }}>
@@ -71,19 +73,8 @@ export const CommentsList = ({comments}: Props) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.lightShade,
-    marginBottom: 10,
     paddingHorizontal: 10,
     paddingVertical: 10,
-    borderRadius: 10,
-    shadowColor: colors.mediumShade,
-
-    shadowOffset: {
-      width: 0,
-      height: 0,
-    },
-    shadowOpacity: 0.23,
-    shadowRadius: 1,
-
-    elevation: 4,
+    borderRadius: BORDER_RADIUS,
   },
 });

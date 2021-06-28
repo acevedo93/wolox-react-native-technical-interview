@@ -40,6 +40,7 @@ export const BooksProvider = ({children}: any) => {
         setBooks(resp.data);
         setLoading(false);
       } catch (error) {
+        console.log(error);
         errorHandler(true, t('errorNetwork.label'));
         setLoading(false);
       }

@@ -1,19 +1,23 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Dimensions} from 'react-native';
 import {colors} from '../styles/colors';
+import LinearGradient from 'react-native-linear-gradient';
 
-export const Background = () => {
-  return <View style={styles.background}></View>;
+export const Background = ({children}: any) => {
+  return (
+    <LinearGradient
+      colors={[colors.primary, colors.primaryShade, colors.primaryTint]}
+      style={styles.gradient}>
+      {children}
+    </LinearGradient>
+  );
 };
 
 const styles = StyleSheet.create({
-  background: {
-    position: 'absolute',
-    backgroundColor: colors.primary,
+  container: {
     flex: 1,
-    width: 1000,
-    height: 1200,
-    top: -150,
-    transform: [{rotate: '-40deg'}],
+  },
+  gradient: {
+    flex: 1,
   },
 });

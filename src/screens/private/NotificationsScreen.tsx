@@ -3,11 +3,12 @@ import {View, Text, StyleSheet} from 'react-native';
 
 import {Waves} from '../../components/Waves';
 import {MainContainer} from '../../components/MainContainer';
+import {globalStyles} from '../../styles/GlobalStyles';
 export const NotificationsScreen = () => {
   return (
     <MainContainer>
-      <Waves screenNumber={3} />
-      <Text>Notifications Screen</Text>
+      <Waves />
+      <Text style={globalStyles.title}>Notifications</Text>
     </MainContainer>
   );
 };

@@ -4,8 +4,9 @@ import {View, Text, StyleSheet} from 'react-native';
 import {colors} from '../styles/colors';
 import {FadeInImage} from './FadeInImage';
 import {Btn} from './Btn';
-import {Background} from './Background';
 import {useLng} from '../hooks/useLng';
+import {globalStyles, BORDER_RADIUS} from '../styles/GlobalStyles';
+import analytics from '@react-native-firebase/analytics';
 
 interface Props {
   book: IBook;
@@ -13,27 +14,31 @@ interface Props {
 export const BookDetailCard = ({book}: Props) => {
   const {t} = useLng();
   return (
-    <View style={styles.container}>
+    <View style={[globalStyles.verticalSpaces, styles.container]}>
       <View>
-        <View style={styles.topContainer}>
+        <View style={[styles.topContainer, globalStyles.verticalSpaces]}>
           <FadeInImage uri={book.image_url} style={styles.imageStyle} />
           <View style={styles.descriptionContainer}>
-            <Text style={styles.title}>{book.title}</Text>
-            <Text style={styles.genre}>{book.genre}</Text>
-            <Text style={styles.author}>{book.author}</Text>
-            <Text style={styles.year}>{book.year}</Text>
-            <Text style={styles.publisher}>{book.publisher}</Text>
+            <Text style={globalStyles.title}>{book.title}</Text>
+            <Text style={globalStyles.subtitle}>{book.author}</Text>
+            <Text style={globalStyles.chip}>{book.genre}</Text>
+            <Text style={globalStyles.p}>{book.year}</Text>
+            <Text style={globalStyles.p}>{book.publisher}</Text>
           </View>
         </View>
-        <View style={styles.btnsContainer}>
+        <View style={[globalStyles.verticalSpaces, styles.btnsContainer]}>
           <Btn
             label={t('bookCardDetail.btns.addToWishList.label')}
-            onPress={() => {}}
+            onPress={async () =>
+              await analytics()
+                .logEvent('wishList', book)
+                .then(res => console.log(res))
+            }
             style={{color: colors.primary, borderColor: colors.primary}}
           />
           <Btn
             label={t('bookCardDetail.btns.rent.label')}
-            onPress={() => {}}
+            onPress={async () => await analytics().logEvent('rent', book)}
             style={{color: colors.primary, borderColor: colors.primary}}
             background={true}
           />
@@ -46,8 +51,7 @@ export const BookDetailCard = ({book}: Props) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.lightShade,
-    marginBottom: 10,
-    borderRadius: 25,
+    borderRadius: BORDER_RADIUS,
     paddingHorizontal: 10,
     paddingVertical: 13,
   },
@@ -57,36 +61,13 @@ const styles = StyleSheet.create({
   imageStyle: {
     width: 120,
     height: 120,
-    borderRadius: 20,
+    borderRadius: BORDER_RADIUS,
   },
   descriptionContainer: {
-    marginLeft: 12,
+    marginLeft: 10,
     flex: 1,
   },
-  title: {
-    fontSize: 20,
-    paddingTop: 5,
-    opacity: 0.8,
-    fontWeight: '700',
-    color: colors.dark,
-  },
-  author: {
-    fontSize: 18,
-    paddingTop: 5,
-    opacity: 0.8,
-    color: colors.dark,
-  },
-  genre: {
-    fontSize: 12,
-    paddingTop: 5,
-    color: colors.primary,
-    fontWeight: '700',
-  },
-
-  year: {},
-  publisher: {},
   btnsContainer: {
-    marginTop: 12,
     marginHorizontal: 20,
   },
 });

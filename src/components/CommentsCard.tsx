@@ -7,6 +7,7 @@ import {colors} from '../styles/colors';
 import {Btn} from './Btn';
 import {useNavigation} from '@react-navigation/native';
 import {useLng} from '../hooks/useLng';
+import {globalStyles, BORDER_RADIUS} from '../styles/GlobalStyles';
 
 interface Props {
   comments: IComment[] | undefined;
@@ -16,13 +17,15 @@ export const CommentsCard = ({comments}: Props) => {
   const {t} = useLng();
   if (comments?.length) {
     return (
-      <View style={styles.container}>
-        <Text style={styles.title}>{t('comments.title.label')}</Text>
+      <View style={globalStyles.verticalSpaces}>
+        <View style={globalStyles.verticalSpaces}>
+          <Text style={globalStyles.title}>{t('comments.title.label')}</Text>
+        </View>
         <View style={styles.comments}>
-          <View style={styles.commentsContainer}>
+          <View style={globalStyles.verticalSpaces}>
             <Comment comment={comments[0]} />
           </View>
-          <View style={styles.commentsContainer}>
+          <View style={globalStyles.verticalSpaces}>
             <Comment comment={comments[1]} />
           </View>
 
@@ -33,6 +36,7 @@ export const CommentsCard = ({comments}: Props) => {
                 Navigator.navigate('CommentsScreen', {comments});
               }}
               style={{
+                ...globalStyles.verticalSpaces,
                 marginHorizontal: 50,
                 borderColor: colors.primary,
                 paddingVertical: 3,
@@ -47,23 +51,10 @@ export const CommentsCard = ({comments}: Props) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    marginBottom: 10,
-  },
-  title: {
-    fontSize: 20,
-    paddingTop: 5,
-    marginBottom: 10,
-    fontWeight: '700',
-    color: colors.dark,
-  },
-  commentsContainer: {
-    marginBottom: 10,
-  },
   comments: {
     backgroundColor: colors.lightShade,
     marginBottom: 10,
-    borderRadius: 25,
+    borderRadius: BORDER_RADIUS,
     paddingHorizontal: 10,
     paddingVertical: 13,
   },

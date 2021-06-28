@@ -1,22 +1,24 @@
-import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-
+import React, {useContext} from 'react';
+import {View, Text} from 'react-native';
 import {Waves} from '../../components/Waves';
 import {BtnTranslate} from '../../components/BtnTranslate';
-export const ProfileScreen = () => {
-  return (
-    <View style={styles.container}>
-      <Waves screenNumber={2} />
+import {Btn} from '../../components/Btn';
+import {AuthContext} from '../../context/auth/AuthContext';
+import {useLng} from '../../hooks/useLng';
+import {MainContainer} from '../../components/MainContainer';
+import {globalStyles} from '../../styles/GlobalStyles';
 
-      <BtnTranslate />
-    </View>
+export const ProfileScreen = () => {
+  const {logOut} = useContext(AuthContext);
+  const {t} = useLng();
+  return (
+    <MainContainer>
+      <Waves />
+      <Text style={globalStyles.title}>Profile</Text>
+      <View style={globalStyles.verticalSpaces}>
+        <BtnTranslate />
+        <Btn onPress={logOut} label={t('btnLogout.label')} />
+      </View>
+    </MainContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});

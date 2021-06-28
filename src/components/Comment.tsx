@@ -3,6 +3,7 @@ import {IComment} from '../interfaces/book';
 import {View, Text, StyleSheet} from 'react-native';
 import {FadeInImage} from './FadeInImage';
 import {colors} from '../styles/colors';
+import {globalStyles} from '../styles/GlobalStyles';
 
 interface Props {
   comment: IComment | undefined;
@@ -15,8 +16,10 @@ export const Comment = ({comment}: Props) => {
     <View style={styles.container}>
       <FadeInImage uri={USER_IMG_URL} style={styles.image} />
       <View style={styles.commentContainer}>
-        <Text style={styles.title}>{comment?.author}</Text>
-        <Text style={styles.comment}>{comment?.comment}</Text>
+        <Text style={[globalStyles.subtitle, {color: colors.primaryTint}]}>
+          {comment?.author}
+        </Text>
+        <Text style={globalStyles.p}>{comment?.comment}</Text>
       </View>
     </View>
   );
@@ -25,7 +28,6 @@ export const Comment = ({comment}: Props) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -37,17 +39,5 @@ const styles = StyleSheet.create({
   },
   commentContainer: {
     flex: 1,
-  },
-  title: {
-    fontSize: 16,
-
-    fontWeight: '700',
-    color: colors.primary,
-  },
-  comment: {
-    fontSize: 10,
-    paddingTop: 8,
-    opacity: 0.8,
-    color: colors.dark,
   },
 });

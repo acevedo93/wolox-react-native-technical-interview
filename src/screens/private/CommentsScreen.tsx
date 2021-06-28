@@ -13,7 +13,7 @@ export const CommentsScreen = ({route}: Props) => {
   const comments: IComment[] = route?.params?.comments;
   return (
     <MainContainer>
-      <Waves screenNumber={1} />
+      <Waves />
       <CommentsList comments={comments} />
     </MainContainer>
   );

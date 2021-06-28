@@ -30,7 +30,7 @@ export const HomeScreen = () => {
 
   return (
     <MainContainer>
-      <Waves screenNumber={1} />
+      <Waves />
       <LoaderData loading={loading} error={error}>
         <BookList books={filterBooks.length ? filterBooks : books} />
       </LoaderData>

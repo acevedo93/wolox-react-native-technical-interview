@@ -3,15 +3,18 @@ import React, {useContext} from 'react';
 import {LoginForm} from '../../components/LoginForm';
 import {ScrollView, View, StyleSheet} from 'react-native';
 import {BtnTranslate} from '../../components/BtnTranslate';
+import {Background} from '../../components/Background';
 
 export const LoginScreen = () => {
   return (
-    <ScrollView>
-      <LoginForm />
-      <View style={style.btnTranslate}>
-        <BtnTranslate />
-      </View>
-    </ScrollView>
+    <Background>
+      <ScrollView>
+        <LoginForm />
+        <View style={style.btnTranslate}>
+          <BtnTranslate background={true} />
+        </View>
+      </ScrollView>
+    </Background>
   );
 };
 

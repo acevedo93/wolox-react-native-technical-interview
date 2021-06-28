@@ -1,5 +1,5 @@
 import React, {useEffect, useContext} from 'react';
-import {View, StyleSheet, Alert} from 'react-native';
+import {View, StyleSheet, Alert, Dimensions} from 'react-native';
 import {Background} from './Background';
 import {Logo} from './Logo';
 import {Controller, useForm} from 'react-hook-form';
@@ -18,67 +18,65 @@ export const LoginForm = () => {
   const {t} = useLng();
 
   return (
-    <>
-      <Background />
-      <View style={styles.formContainer}>
-        <View style={styles.logoContainer}>
-          <Logo />
-        </View>
-        <Controller
-          control={control}
-          rules={{required: true}}
-          name="name"
-          defaultValue=""
-          render={({field: {onChange, value}}) => (
-            <Input
-              underLine={true}
-              label={t('loginForm.name.label')}
-              placeholder={t('loginForm.name.placeholder')}
-              onChange={value => onChange(value)}
-              type="text"
-              value={value}
-            />
-          )}
-        />
-        <Controller
-          control={control}
-          rules={{required: true}}
-          name="lastName"
-          defaultValue=""
-          render={({field: {onChange, value}}) => (
-            <Input
-              underLine={true}
-              label={t('loginForm.lastName.label')}
-              placeholder={t('loginForm.lastName.placeholder')}
-              onChange={value => onChange(value)}
-              type="text"
-              value={value}
-            />
-          )}
-        />
-        <Controller
-          control={control}
-          rules={{
-            required: true,
-            pattern: {
-              value: EMAIL_REGEX,
-              message: t('loginForm.email.errorMsg'),
-            },
-          }}
-          name="email"
-          defaultValue=""
-          render={({field: {onChange, value}}) => (
-            <Input
-              underLine={true}
-              label={t('loginForm.email.label')}
-              placeholder={t('loginForm.email.placeholder')}
-              onChange={value => onChange(value)}
-              type="email"
-              value={value}
-            />
-          )}
-        />
-        {/* <Controller
+    <View style={styles.formContainer}>
+      <View style={styles.logoContainer}>
+        <Logo />
+      </View>
+      <Controller
+        control={control}
+        rules={{required: true}}
+        name="name"
+        defaultValue=""
+        render={({field: {onChange, value}}) => (
+          <Input
+            underLine={true}
+            label={t('loginForm.name.label')}
+            placeholder={t('loginForm.name.placeholder')}
+            onChange={value => onChange(value)}
+            type="text"
+            value={value}
+          />
+        )}
+      />
+      <Controller
+        control={control}
+        rules={{required: true}}
+        name="lastName"
+        defaultValue=""
+        render={({field: {onChange, value}}) => (
+          <Input
+            underLine={true}
+            label={t('loginForm.lastName.label')}
+            placeholder={t('loginForm.lastName.placeholder')}
+            onChange={value => onChange(value)}
+            type="text"
+            value={value}
+          />
+        )}
+      />
+      <Controller
+        control={control}
+        rules={{
+          required: true,
+          pattern: {
+            value: EMAIL_REGEX,
+            message: t('loginForm.email.errorMsg'),
+          },
+        }}
+        name="email"
+        defaultValue=""
+        render={({field: {onChange, value}}) => (
+          <Input
+            underLine={true}
+            label={t('loginForm.email.label')}
+            placeholder={t('loginForm.email.placeholder')}
+            onChange={value => onChange(value)}
+            type="email"
+            value={value}
+          />
+        )}
+      />
+      {/* <Controller
           control={control}
           name="date"
           defaultValue=""
@@ -98,45 +96,44 @@ export const LoginForm = () => {
           )}
         /> */}
 
-        <View style={styles.termsAndConditionsContainer}>
-          <Controller
-            control={control}
-            name="termsAndConditions"
-            rules={{
-              required: true,
-            }}
-            defaultValue={false}
-            render={({field: {onChange, value}}) => (
-              <Input
-                underLine={true}
-                label={t('loginForm.termsAndConditions.label')}
-                placeholder={t('loginForm.termsAndConditions.placeholder')}
-                onChange={value => {
-                  onChange(value);
-                }}
-                type="checkBox"
-                value={value}
-              />
-            )}
-          />
-        </View>
-
-        <View style={styles.btnContainer}>
-          <Btn
-            disabled={!isValid}
-            label={t('loginForm.btnLogin.label')}
-            onPress={handleSubmit(onSubmit)}
-          />
-        </View>
+      <View style={styles.termsAndConditionsContainer}>
+        <Controller
+          control={control}
+          name="termsAndConditions"
+          rules={{
+            required: true,
+          }}
+          defaultValue={false}
+          render={({field: {onChange, value}}) => (
+            <Input
+              underLine={true}
+              label={t('loginForm.termsAndConditions.label')}
+              placeholder={t('loginForm.termsAndConditions.placeholder')}
+              onChange={value => {
+                onChange(value);
+              }}
+              type="checkBox"
+              value={value}
+            />
+          )}
+        />
       </View>
-    </>
+
+      <View style={styles.btnContainer}>
+        <Btn
+          disabled={!isValid}
+          label={t('loginForm.btnLogin.label')}
+          onPress={handleSubmit(onSubmit)}
+          background={true}
+        />
+      </View>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   formContainer: {
-    flex: 1,
-    paddingHorizontal: 30,
+    paddingHorizontal: 20,
   },
   logoContainer: {
     justifyContent: 'center',

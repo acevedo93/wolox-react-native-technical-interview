@@ -37,7 +37,7 @@
   },
   "homeScreen": {
     "headerTitle": {
-      "label": "Books"
+      "label": "Library"
     }
   },
   "bookDetailScreen": {
@@ -85,6 +85,9 @@
     "btnSeeAll": {
       "label": "See All"
     }
+  },
+  "btnLogout": {
+    "label": "Log Out"
   },
   "searchBar": {
     "placeholder": {

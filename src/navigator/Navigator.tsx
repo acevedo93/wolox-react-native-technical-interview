@@ -14,6 +14,7 @@ import {useLng} from '../hooks/useLng';
 import {BookDetailScreen} from '../screens/private/BookDetailScreen';
 import {CommentsScreen} from '../screens/private/CommentsScreen';
 import {SearchBtn} from '../components/SearchBtn';
+import {FONT_FAMILY} from '../styles/GlobalStyles';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -24,11 +25,12 @@ const screenOptions = {
     shadowColor: 'transparent',
     backgroundColor: colors.primary,
   },
+  headerBackTitle: ' ',
   headerTintColor: colors.lightTint,
   headerTitleStyle: {
-    fontWeight: 'bold',
-    alignSelf: Platform.OS === 'android' && 'center',
+    fontFamily: FONT_FAMILY,
   },
+  headerTitleAlign: 'center',
   cardStyle: {
     backgroundColor: 'white',
   },
@@ -37,9 +39,9 @@ const tabBarOptions = {
   activeTintColor: colors.primaryTint,
   labelStyle: {
     marginBottom: Platform.OS === 'ios' ? 0 : 10,
+    fontFamily: FONT_FAMILY,
   },
 
-  headerTintColor: 'blue',
   style: {
     borderWidth: 0,
     elevation: 0,
@@ -140,7 +142,7 @@ export const Navigator = () => {
   );
   return (
     <Stack.Navigator screenOptions={{screenOptions}}>
-      {status == 'authSuccess' ? (
+      {status !== 'authSuccess' ? (
         <>
           <Stack.Screen
             options={{headerShown: false}}
@@ -176,14 +178,3 @@ export const Navigator = () => {
     </Stack.Navigator>
   );
 };
-
-// return (
-//   <Stack.Navigator screenOptions={screenOptions}>
-//     <Stack.Screen
-//       options={{headerShown: false}}
-//       name="TabsScreens"
-//       component={TabsScreens}
-//     />
-
-//   </Stack.Navigator>
-// );

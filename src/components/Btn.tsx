@@ -1,7 +1,7 @@
 import React from 'react';
 import {TouchableOpacity, Text, StyleSheet, StyleProp} from 'react-native';
 import {colors} from '../styles/colors';
-import {LinearGradient} from 'react-native-svg';
+import {globalStyles, BUTTON_BORDER_RADIUS} from '../styles/GlobalStyles';
 
 export interface Props {
   label: string;
@@ -30,7 +30,7 @@ export const Btn = ({
       ]}>
       <Text
         style={[
-          styles.btnText,
+          globalStyles.btnText,
           {
             opacity: disabled ? 0.2 : 1,
             color: background ? colors.light : colors.primary,
@@ -45,16 +45,10 @@ export const Btn = ({
 const styles = StyleSheet.create({
   btn: {
     borderColor: colors.secondary,
-    borderRadius: 100,
+    borderRadius: BUTTON_BORDER_RADIUS,
     borderWidth: 2,
     paddingHorizontal: 20,
     paddingVertical: 7,
     marginBottom: 10,
-  },
-  btnText: {
-    textAlign: 'center',
-    fontSize: 20,
-    color: colors.light,
-    fontWeight: '700',
   },
 });

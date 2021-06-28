@@ -13,6 +13,7 @@ import {BooksContext} from '../context/books/BooksContext';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {colors} from '../styles/colors';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {BORDER_RADIUS, WEIGHT, FONT_FAMILY} from '../styles/GlobalStyles';
 const windowWidth = Dimensions.get('window').width;
 export const SearchBar = () => {
   const {searchBooks, handleSearch} = useContext(BooksContext);
@@ -40,18 +41,16 @@ export const SearchBar = () => {
 };
 const styles = StyleSheet.create({
   container: {
-    width: windowWidth - 100,
+    width: windowWidth - 80,
     flexDirection: 'row',
   },
   input: {
     margin: 15,
     height: 40,
-    borderColor: 'transparent',
     paddingLeft: 10,
-    fontWeight: '700',
+    fontFamily: FONT_FAMILY,
     color: colors.light,
-    borderRadius: 10,
-    borderWidth: 1,
+    width: windowWidth - 140,
   },
   iconClose: {
     zIndex: 1,

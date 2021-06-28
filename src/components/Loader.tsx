@@ -3,6 +3,7 @@ import {ActivityIndicator, View, StyleSheet, Text} from 'react-native';
 import {colors} from '../styles/colors';
 import {IError} from '../interfaces/error';
 import {ErrorImg} from './ErrorImg';
+import {FONT_FAMILY} from '../styles/GlobalStyles';
 
 interface Props {
   children: JSX.Element | JSX.Element[];
@@ -33,11 +34,11 @@ export const LoaderData = ({children, loading, error}: Props) => {
 const styles = StyleSheet.create({
   loader: {},
   errorMsgContainer: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
   errorMsg: {
+    fontFamily: FONT_FAMILY,
     fontSize: 20,
     paddingHorizontal: 50,
     color: colors.primary,

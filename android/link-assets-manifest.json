@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Rubik-Italic-VariableFont_wght.ttf",
+      "sha1": "1bb89d81ad286697b07bcdf4031416631dff2802"
+    },
+    {
+      "path": "assets/fonts/Rubik-VariableFont_wght.ttf",
+      "sha1": "9eb3cea52512b1f3cd2fb6cb73d47e98d15f6783"
+    }
+  ]
+}

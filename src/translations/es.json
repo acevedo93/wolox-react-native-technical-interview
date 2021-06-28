@@ -37,7 +37,7 @@
   },
   "homeScreen": {
     "headerTitle": {
-      "label": "Peliculas"
+      "label": "Libreria"
     }
   },
   "bookDetailScreen": {
@@ -88,6 +88,9 @@
     "placeholder": {
       "label": "Buscar Libros"
     }
+  },
+  "btnLogout": {
+    "label": "Salir"
   },
   "errorNetwork": {
     "label": "UPPS parece que hay un error, o no encontramos lo que buscas, lo sentimos"

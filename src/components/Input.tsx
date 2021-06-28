@@ -5,6 +5,7 @@ import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import dayjs from 'dayjs';
 import RNDateTimePicker from '@react-native-community/datetimepicker';
 import {colors} from '../styles/colors';
+import {FONT_FAMILY} from '../styles/GlobalStyles';
 
 export interface Props {
   label?: string;
@@ -74,7 +75,7 @@ export const Input = ({
         text={label}
         iconStyle={{borderColor: colors.lightShade}}
         onPress={onChange}
-        textStyle={{color: colors.light}}
+        textStyle={{color: colors.light, fontFamily: FONT_FAMILY}}
       />
     );
   };
@@ -113,22 +114,24 @@ const styles = StyleSheet.create({
   title: {
     color: colors.light,
     fontSize: 30,
-    fontWeight: 'bold',
     marginTop: 20,
+    fontFamily: FONT_FAMILY,
   },
   label: {
     marginTop: 25,
     color: colors.light,
-    fontWeight: 'bold',
+    fontFamily: FONT_FAMILY,
   },
   inputField: {
     fontSize: 20,
     color: colors.light,
+    fontFamily: FONT_FAMILY,
   },
   inputFieldIos: {
     borderBottomColor: colors.lightShade,
     borderBottomWidth: 1,
     paddingBottom: 4,
+    fontFamily: FONT_FAMILY,
   },
   underLine: {
     backgroundColor: colors.light,
