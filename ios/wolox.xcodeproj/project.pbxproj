@@ -42,6 +42,7 @@
 		9BA63BB4F45FEC2F6C8ACB3D /* libPods-wolox-woloxTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wolox-woloxTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0DDFD9338B2C9F081C7039D /* Pods-wolox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wolox.debug.xcconfig"; path = "Target Support Files/Pods-wolox/Pods-wolox.debug.xcconfig"; sourceTree = "<group>"; };
 		B9F00B27FD3529CCB87B3F8D /* Pods-wolox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wolox.release.xcconfig"; path = "Target Support Files/Pods-wolox/Pods-wolox.release.xcconfig"; sourceTree = "<group>"; };
+		E0DEDAB92687DB7100B6ECD2 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		EC179B7D411E6173DFD5A06A /* libPods-wolox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wolox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -116,6 +117,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				E0DEDAB82687DAA600B6ECD2 /* Fonts */,
 				13B07FAE1A68108700A75B9A /* wolox */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* woloxTests */,
@@ -137,6 +139,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		E0DEDAB82687DAA600B6ECD2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E0DEDAB92687DB7100B6ECD2 /* Ionicons.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		F4E5FF25200E8FC784152966 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,7 +155,6 @@
 				92ED620FC24B562BFFABE910 /* Pods-wolox-woloxTests.debug.xcconfig */,
 				525A8476C7D23A1B4AD7BB9D /* Pods-wolox-woloxTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

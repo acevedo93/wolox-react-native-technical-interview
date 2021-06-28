@@ -40,7 +40,6 @@ export const AuthProvider = ({children}: any) => {
       dispatch({type: 'LOG_IN', payload: {user: data}});
       await AsyncStorage.setItem('user', JSON.stringify(data));
     } catch (err) {
-      console.log('error', err);
       dispatch({type: 'ERROR', payload: 'Ocurrio un error inesperado'});
     }
   };

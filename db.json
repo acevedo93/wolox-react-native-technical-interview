@@ -1,18 +1,11 @@
 {
   "sign_in": [
     {
-      "name": "dsadsa",
-      "lastName": "fdsafda",
+      "name": "David",
+      "lastName": "Acevedo",
       "email": "dacevedojaramillo@gmail.com",
       "termsAndConditions": true,
       "id": 1
-    },
-    {
-      "name": "dsfd",
-      "lastName": "dsadsa",
-      "email": "dacevedojaramillo@gmail.com",
-      "termsAndConditions": true,
-      "id": 2
     }
   ],
   "books": [
@@ -23,7 +16,19 @@
       "genre": "Short story",
       "publisher": "Butterworth-Heinemann",
       "year": "1968",
-      "image_url": null
+      "image_url": "https://wolox-training.s3.amazonaws.com/uploads/6942334-M.jpg",
+      "comments": [
+        {
+          "id": 1,
+          "author": "David Acevedo",
+          "comment": "Good Book"
+        },
+        {
+          "id": 2,
+          "author": "Pedro",
+          "comment": "muy bun libro"
+        }
+      ]
     },
     {
       "id": 2,
@@ -32,7 +37,24 @@
       "genre": "other",
       "publisher": "Pocket Books",
       "year": "1989",
-      "image_url": null
+      "image_url": "https://wolox-training.s3.amazonaws.com/uploads/6942334-M.jpg",
+      "comments": [
+        {
+          "id": 1,
+          "author": "David Acevedo",
+          "comment": "Good Book"
+        },
+        {
+          "id": 2,
+          "author": "Pedro",
+          "comment": "muy bun libro"
+        },
+        {
+          "id": 3,
+          "author": "marcos",
+          "comment": "Un buen libro para pasar el rato"
+        }
+      ]
     },
     {
       "id": 3,
@@ -41,7 +63,8 @@
       "genre": "suspense",
       "publisher": "Little, Brown",
       "year": "1985",
-      "image_url": "http://wolox-training.s3.amazonaws.com/uploads/6942334-M.jpg"
+      "image_url": "https://wolox-training.s3.amazonaws.com/uploads/6942334-M.jpg",
+      "comments": []
     },
     {
       "id": 4,
@@ -50,7 +73,8 @@
       "genre": "suspense",
       "publisher": "Pocket Books",
       "year": "1989",
-      "image_url": "http://wolox-training.s3.amazonaws.com/uploads/6963511-M.jpg"
+      "image_url": "https://wolox-training.s3.amazonaws.com/uploads/6963511-M.jpg",
+      "comments": []
     },
     {
       "id": 5,
@@ -59,16 +83,48 @@
       "genre": "suspense",
       "publisher": "Pocket Books",
       "year": "1989",
-      "image_url": "http://wolox-training.s3.amazonaws.com/uploads/6963511-M.jpg"
+      "image_url": "https://wolox-training.s3.amazonaws.com/uploads/6963511-M.jpg",
+      "comments": [
+        {
+          "id": 1,
+          "author": "David Acevedo",
+          "comment": "Good Book"
+        },
+        {
+          "id": 2,
+          "author": "Pedro",
+          "comment": "muy bun libro  me parecion interesante la forma como resolvio toda la trama, y los personajes son increibles"
+        },
+        {
+          "id": 3,
+          "author": "marcos",
+          "comment": "Un buen libro para pasar el rato"
+        },
+        {
+          "id": 4,
+          "author": "Fernando",
+          "comment": "Good Book"
+        },
+        {
+          "id": 5,
+          "author": "Yulieth",
+          "comment": "muy bun libro"
+        },
+        {
+          "id": 6,
+          "author": "Cesar",
+          "comment": "Un buen libro para pasar el rato"
+        }
+      ]
     },
     {
       "id": 6,
       "author": "Paula Hawkins",
-      "title": "The Girl on the Train\n",
+      "title": "The Girl on the Train",
       "genre": "suspense",
       "publisher": "Riverhead Books",
       "year": "2015",
-      "image_url": "http://wolox-training.s3.amazonaws.com/uploads/content.jpeg"
+      "image_url": "https://wolox-training.s3.amazonaws.com/uploads/content.jpeg"
     },
     {
       "id": 7,
@@ -77,7 +133,7 @@
       "genre": "suspense",
       "publisher": "Scribner",
       "year": "2014",
-      "image_url": "http://wolox-training.s3.amazonaws.com/uploads/content.jpeg"
+      "image_url": "https://wolox-training.s3.amazonaws.com/uploads/content.jpeg"
     },
     {
       "id": 8,
@@ -86,7 +142,7 @@
       "genre": "thriller",
       "publisher": "Ballantine Books",
       "year": "2003",
-      "image_url": "http://wolox-training.s3.amazonaws.com/uploads/el-psicoanalista-analyst-john-katzenbach-paperback-cover-art.jpg"
+      "image_url": "https://wolox-training.s3.amazonaws.com/uploads/el-psicoanalista-analyst-john-katzenbach-paperback-cover-art.jpg"
     },
     {
       "id": 9,
@@ -95,7 +151,7 @@
       "genre": "fiction",
       "publisher": "Crown Publishing Group",
       "year": "2011",
-      "image_url": "http://wolox-training.s3.amazonaws.com/uploads/41DNuJfahyL._SX322_BO1_204_203_200_.jpg"
+      "image_url": "https://wolox-training.s3.amazonaws.com/uploads/41DNuJfahyL._SX322_BO1_204_203_200_.jpg"
     }
   ]
 }

@@ -1,23 +1,39 @@
-import React, {useContext} from 'react';
-import {View, Text, Button, StyleSheet} from 'react-native';
-import {AuthContext} from '../../context/auth/AuthContext';
+import React, {useContext, useEffect} from 'react';
 import {Waves} from '../../components/Waves';
-export const HomeScreen = () => {
-  const {logOut} = useContext(AuthContext);
-  return (
-    <View style={styles.container}>
-      <Waves screenNumber={1} />
-      <Text>Home Screen</Text>
+import {BooksContext} from '../../context/books/BooksContext';
+import {LoaderData} from '../../components/Loader';
+import {BookList} from '../../components/BookList';
+import {MainContainer} from '../../components/MainContainer';
+import {useNavigation} from '@react-navigation/native';
 
-      <Button title="logout" onPress={logOut} />
-    </View>
+import {SearchBar} from '../../components/SearchBar';
+import {Text} from 'react-native';
+import {useLng} from '../../hooks/useLng';
+export const HomeScreen = () => {
+  const {books, loading, error, search, filterBooks} = useContext(BooksContext);
+  const {t} = useLng();
+  const navigator = useNavigation();
+  const handleSearch = () => {
+    return navigator.setOptions({
+      headerTitle: search ? (
+        () => <SearchBar />
+      ) : (
+        <Text style={{textAlign: 'center', marginLeft: 20}}>
+          {t('homeScreen.headerTitle.label')}
+        </Text>
+      ),
+    });
+  };
+  useEffect(() => {
+    handleSearch();
+  }, [search]);
+
+  return (
+    <MainContainer>
+      <Waves screenNumber={1} />
+      <LoaderData loading={loading} error={error}>
+        <BookList books={filterBooks.length ? filterBooks : books} />
+      </LoaderData>
+    </MainContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});

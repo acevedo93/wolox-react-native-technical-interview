@@ -23,5 +23,75 @@
     "btnLogin": {
       "label": "Login"
     }
+  },
+  "bottomTab": {
+    "home": {
+      "label": "Home"
+    },
+    "profile": {
+      "label": "Profile"
+    },
+    "notifications": {
+      "label": "Notifications"
+    }
+  },
+  "homeScreen": {
+    "headerTitle": {
+      "label": "Books"
+    }
+  },
+  "bookDetailScreen": {
+    "headerTitle": {
+      "label": "Detail"
+    }
+  },
+  "profileScreen": {
+    "headerTitle": {
+      "label": "Profile"
+    }
+  },
+  "notificationsScreen": {
+    "headerTitle": {
+      "label": "Notifications"
+    }
+  },
+  "commentsScreen": {
+    "headerTitle": {
+      "label": "Comments"
+    }
+  },
+  "errorNetwork": {
+    "label": "UPPS seems to be an error, or we can't find what you're looking for, sorry"
+  },
+  "bookCardDetail": {
+    "btns": {
+      "addToWishList": {
+        "label": "Add to Wishlist"
+      },
+      "rent": {
+        "label": "Rent"
+      }
+    }
+  },
+  "suggestionsCarousel": {
+    "title": {
+      "label": "Suggestions for you"
+    }
+  },
+  "comments": {
+    "title": {
+      "label": "Comments"
+    },
+    "btnSeeAll": {
+      "label": "See All"
+    }
+  },
+  "searchBar": {
+    "placeholder": {
+      "label": "Search Books"
+    }
+  },
+  "errorSearch": {
+    "label": "We do not find results for your search"
   }
 }

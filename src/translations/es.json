@@ -23,5 +23,76 @@
     "btnLogin": {
       "label": "Entrar"
     }
+  },
+  "bottomTab": {
+    "home": {
+      "label": "Inicio"
+    },
+    "profile": {
+      "label": "Perfil"
+    },
+    "notifications": {
+      "label": "Notificaciones"
+    }
+  },
+  "homeScreen": {
+    "headerTitle": {
+      "label": "Peliculas"
+    }
+  },
+  "bookDetailScreen": {
+    "headerTitle": {
+      "label": "Detalle"
+    }
+  },
+  "profileScreen": {
+    "headerTitle": {
+      "label": "Perfil"
+    }
+  },
+  "notificationsScreen": {
+    "headerTitle": {
+      "label": "Notificaciones"
+    }
+  },
+  "commentsScreen": {
+    "headerTitle": {
+      "label": "Comentarios"
+    }
+  },
+
+  "bookCardDetail": {
+    "btns": {
+      "addToWishList": {
+        "label": "Agregar a la lista"
+      },
+      "rent": {
+        "label": "Alquilar"
+      }
+    }
+  },
+  "suggestionsCarousel": {
+    "title": {
+      "label": "Sugerencias para ti"
+    }
+  },
+  "comments": {
+    "title": {
+      "label": "Comentarios"
+    },
+    "btnSeeAll": {
+      "label": "Ver Todos"
+    }
+  },
+  "searchBar": {
+    "placeholder": {
+      "label": "Buscar Libros"
+    }
+  },
+  "errorNetwork": {
+    "label": "UPPS parece que hay un error, o no encontramos lo que buscas, lo sentimos"
+  },
+  "errorSearch": {
+    "label": "No encontramos resultados para tu busqueda"
   }
 }

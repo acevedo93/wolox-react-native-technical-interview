@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
+import {colors} from '../styles/colors';
 
 interface Props {
   children: JSX.Element | JSX.Element[];
@@ -11,8 +12,8 @@ export const MainContainer = ({children}: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 80,
+    paddingTop: 60,
     flex: 1,
-    paddingHorizontal: 10,
+    paddingHorizontal: 15,
   },
 });

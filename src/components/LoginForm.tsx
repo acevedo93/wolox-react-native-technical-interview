@@ -31,6 +31,7 @@ export const LoginForm = () => {
           defaultValue=""
           render={({field: {onChange, value}}) => (
             <Input
+              underLine={true}
               label={t('loginForm.name.label')}
               placeholder={t('loginForm.name.placeholder')}
               onChange={value => onChange(value)}
@@ -46,6 +47,7 @@ export const LoginForm = () => {
           defaultValue=""
           render={({field: {onChange, value}}) => (
             <Input
+              underLine={true}
               label={t('loginForm.lastName.label')}
               placeholder={t('loginForm.lastName.placeholder')}
               onChange={value => onChange(value)}
@@ -67,6 +69,7 @@ export const LoginForm = () => {
           defaultValue=""
           render={({field: {onChange, value}}) => (
             <Input
+              underLine={true}
               label={t('loginForm.email.label')}
               placeholder={t('loginForm.email.placeholder')}
               onChange={value => onChange(value)}
@@ -105,6 +108,7 @@ export const LoginForm = () => {
             defaultValue={false}
             render={({field: {onChange, value}}) => (
               <Input
+                underLine={true}
                 label={t('loginForm.termsAndConditions.label')}
                 placeholder={t('loginForm.termsAndConditions.placeholder')}
                 onChange={value => {

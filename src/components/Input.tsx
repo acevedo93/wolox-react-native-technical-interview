@@ -10,7 +10,8 @@ export interface Props {
   label?: string;
   placeholder: string;
   type: 'text' | 'date' | 'email' | 'checkBox';
-  value: any;
+  value?: any;
+  underLine?: boolean;
   onChange: (value: string | Date | boolean | undefined) => void;
 }
 
@@ -20,6 +21,7 @@ export const Input = ({
   onChange,
   value,
   type,
+  underLine,
 }: Props) => {
   const renderDateTimePicker = () => {
     const [dateTime, setDateTime] = useState(new Date());
@@ -41,7 +43,7 @@ export const Input = ({
             <Text style={styles.inputField} onPress={showDatePicker}>
               {dateTime ? dayjs(dateTime).format('MMM DD, YYYY') : placeholder}
             </Text>
-            <View style={styles.underLine}></View>
+            {underLine && <View style={styles.underLine}></View>}
           </View>
         )}
         <View>
@@ -84,10 +86,10 @@ export const Input = ({
         placeholder={placeholder}
         placeholderTextColor={colors.mediumTint}
         keyboardType="email-address"
-        underlineColorAndroid={colors.lightShade}
+        underlineColorAndroid={!underLine ? 'transparent' : colors.lightShade}
         style={[
           styles.inputField,
-          Platform.OS === 'ios' && styles.inputFieldIos,
+          Platform.OS === 'ios' && underLine && styles.inputFieldIos,
         ]}
         value={value}
         selectionColor={colors.light}

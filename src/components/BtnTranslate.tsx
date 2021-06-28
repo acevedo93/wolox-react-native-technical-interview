@@ -10,7 +10,7 @@ export const BtnTranslate = () => {
 
 const styles = StyleSheet.create({
   btnTranslate: {
-    paddingHorizontal: 10,
-    paddingVertical: 2,
+    paddingHorizontal: 5,
+    paddingVertical: 3,
   },
 });
