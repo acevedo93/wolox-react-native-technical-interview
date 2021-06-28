@@ -16,6 +16,7 @@
 		8F0E05403264480A81A13C14 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 29BFBC9D68F541A4BEF62F88 /* Montserrat-Regular.ttf */; };
 		D400237E1C7B48ECB43CB607 /* Montserrat-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 67AB7167863A4D389FC7C842 /* Montserrat-Italic.ttf */; };
 		DEF136CC4F9D1FA841490348 /* libPods-wolox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC179B7D411E6173DFD5A06A /* libPods-wolox.a */; };
+		E05EBC68268A50D500B9AA62 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E05EBC67268A50D500B9AA62 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		A0DDFD9338B2C9F081C7039D /* Pods-wolox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wolox.debug.xcconfig"; path = "Target Support Files/Pods-wolox/Pods-wolox.debug.xcconfig"; sourceTree = "<group>"; };
 		B9F00B27FD3529CCB87B3F8D /* Pods-wolox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wolox.release.xcconfig"; path = "Target Support Files/Pods-wolox/Pods-wolox.release.xcconfig"; sourceTree = "<group>"; };
 		E05EBC1B268A437700B9AA62 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		E05EBC67268A50D500B9AA62 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EC179B7D411E6173DFD5A06A /* libPods-wolox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wolox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -130,6 +132,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				E05EBC67268A50D500B9AA62 /* GoogleService-Info.plist */,
 				E05EBC1A268A428C00B9AA62 /* Fonts */,
 				13B07FAE1A68108700A75B9A /* wolox */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -269,6 +272,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				E05EBC68268A50D500B9AA62 /* GoogleService-Info.plist in Resources */,
 				D400237E1C7B48ECB43CB607 /* Montserrat-Italic.ttf in Resources */,
 				8F0E05403264480A81A13C14 /* Montserrat-Regular.ttf in Resources */,
 			);
