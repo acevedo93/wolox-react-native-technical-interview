@@ -1,23 +1,18 @@
 import React, {useContext} from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  Dimensions,
-  TextInput,
-  Platform,
-} from 'react-native';
+import {View, StyleSheet, Dimensions, TextInput, Platform} from 'react-native';
 import {useLng} from '../hooks/useLng';
-
 import {BooksContext} from '../context/books/BooksContext';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {colors} from '../styles/colors';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {BORDER_RADIUS, WEIGHT, FONT_FAMILY} from '../styles/GlobalStyles';
+import {FONT_FAMILY} from '../styles/GlobalStyles';
+
 const windowWidth = Dimensions.get('window').width;
+
 export const SearchBar = () => {
   const {searchBooks, handleSearch} = useContext(BooksContext);
   const {t} = useLng();
+
   return (
     <View style={styles.container}>
       <View>
@@ -39,6 +34,7 @@ export const SearchBar = () => {
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     width: windowWidth - 80,

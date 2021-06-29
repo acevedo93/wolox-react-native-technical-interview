@@ -1,5 +1,5 @@
-import React, {useEffect, useContext} from 'react';
-import {View, StyleSheet, ActivityIndicator} from 'react-native';
+import React from 'react';
+import {View, StyleSheet} from 'react-native';
 import {Logo} from './Logo';
 import {Controller} from 'react-hook-form';
 import {Input} from './Input';

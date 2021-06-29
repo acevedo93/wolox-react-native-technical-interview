@@ -7,6 +7,7 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import {colors} from '../styles/colors';
 import {FONT_FAMILY} from '../styles/GlobalStyles';
 
+const INITIAL_DATE = new Date(2000, 0, 1);
 export interface Props {
   label?: string;
   placeholder: string;
@@ -15,8 +16,6 @@ export interface Props {
   underLine?: boolean;
   onChange: (value: string | Date | boolean | undefined) => void;
 }
-
-const INITIAL_DATE = new Date(2000, 0, 1);
 
 export const Input = ({
   label = '',
@@ -42,7 +41,7 @@ export const Input = ({
       setShow(true);
     };
     return (
-      <View class={styles.containerDatePicker}>
+      <View>
         <Text style={styles.title}>{label}</Text>
         {Platform.OS !== 'ios' && (
           <View>

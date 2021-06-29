@@ -1,7 +1,6 @@
 import React from 'react';
 import {IComment} from '../interfaces/book';
 import {View, Text, StyleSheet} from 'react-native';
-
 import {Comment} from './Comment';
 import {colors} from '../styles/colors';
 import {Btn} from './Btn';

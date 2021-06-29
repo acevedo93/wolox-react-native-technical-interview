@@ -6,6 +6,7 @@ import {BooksContext} from '../context/books/BooksContext';
 
 export const SearchBtn = () => {
   const {handleSearch, search} = useContext(BooksContext);
+
   if (!search) {
     return (
       <View style={styles.searchBtn}>

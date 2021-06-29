@@ -26,6 +26,7 @@ export const BookDetailCard = ({book}: Props) => {
       fontFamily: FONT_FAMILY,
     });
   };
+
   return (
     <View
       style={[

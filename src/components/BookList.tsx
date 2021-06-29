@@ -1,16 +1,17 @@
 import React from 'react';
-import {FlatList, Text, Animated} from 'react-native';
-import {IBook, IComment} from '../interfaces/book';
+import {Animated} from 'react-native';
+import {IBook} from '../interfaces/book';
 import {BookCard} from './BookCard';
 import {useRef} from 'react';
-import {transform} from '@babel/core';
 
 interface Props {
   books: IBook[] | undefined;
 }
+
 const SPACING = 20;
 const AVATAR_SIZE = 70;
 const ITEM_SIZE = AVATAR_SIZE + SPACING * 3;
+
 export const BookList = ({books}: Props) => {
   const scrollY = useRef(new Animated.Value(0)).current;
 

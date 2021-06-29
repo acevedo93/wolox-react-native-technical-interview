@@ -1,7 +1,6 @@
 import React from 'react';
 import {Animated, StyleSheet} from 'react-native';
 import {IComment} from '../interfaces/book';
-import {BookCard} from './BookCard';
 import {useRef} from 'react';
 import {Comment} from './Comment';
 import {colors} from '../styles/colors';
@@ -10,9 +9,11 @@ import {globalStyles, BORDER_RADIUS} from '../styles/GlobalStyles';
 interface Props {
   comments: IComment[] | undefined;
 }
+
 const SPACING = 20;
 const AVATAR_SIZE = 70;
 const ITEM_SIZE = AVATAR_SIZE + SPACING * 3;
+
 export const CommentsList = ({comments}: Props) => {
   const scrollY = useRef(new Animated.Value(0)).current;
 

@@ -1,9 +1,13 @@
 import React from 'react';
-import {View, StyleSheet, Dimensions} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {colors} from '../styles/colors';
 import LinearGradient from 'react-native-linear-gradient';
 
-export const Background = ({children}: any) => {
+export const Background = ({
+  children,
+}: {
+  children: JSX.Element | JSX.Element[];
+}) => {
   return (
     <LinearGradient
       start={{x: 0.0, y: 0.0}}

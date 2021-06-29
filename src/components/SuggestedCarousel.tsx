@@ -1,8 +1,7 @@
 import React from 'react';
-import {FlatList, Text, View, StyleSheet} from 'react-native';
+import {FlatList, Text, View} from 'react-native';
 import {IBook} from '../interfaces/book';
 import {FadeInImage} from './FadeInImage';
-import {colors} from '../styles/colors';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
 import {useLng} from '../hooks/useLng';

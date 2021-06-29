@@ -7,7 +7,7 @@ import {colors} from '../styles/colors';
 import {FONT_FAMILY} from '../styles/GlobalStyles';
 
 export const useLogin = () => {
-  const {logIn, errorMsg, clearErrorMsg, status} = useContext(AuthContext);
+  const {logIn, errorMsg, status} = useContext(AuthContext);
   const {
     control,
     handleSubmit,

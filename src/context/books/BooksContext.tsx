@@ -28,8 +28,8 @@ export const BooksProvider = ({children}: any) => {
   const [search, setSearch] = useState<boolean>();
   const [filterBooks, setFilterBooks] = useState<IBook[]>([]);
   const {status} = useContext(AuthContext);
+
   useEffect(() => {
-    console.log(status);
     if (status === 'authSuccess') {
       getBooks();
     }
@@ -48,12 +48,6 @@ export const BooksProvider = ({children}: any) => {
         setLoading(false);
       }
     }, 2000);
-  };
-  const errorHandler = (status: boolean, msg: string = '') => {
-    setError({
-      status,
-      msg,
-    });
   };
 
   const getSuggestions = (bookSelected: IBook) => {
@@ -86,6 +80,13 @@ export const BooksProvider = ({children}: any) => {
     setFilterBooks([]);
     errorHandler(false);
     return setSearch(false);
+  };
+
+  const errorHandler = (status: boolean, msg: string = '') => {
+    setError({
+      status,
+      msg,
+    });
   };
 
   return (

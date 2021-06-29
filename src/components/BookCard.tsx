@@ -7,9 +7,7 @@ import {
   Image,
   Animated,
 } from 'react-native';
-
 import {TouchableOpacity} from 'react-native-gesture-handler';
-
 import {FadeInImage} from './FadeInImage';
 import {IBook} from '../interfaces/book';
 import {colors} from '../styles/colors';

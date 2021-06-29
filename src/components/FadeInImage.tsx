@@ -20,6 +20,7 @@ interface Props {
 export const FadeInImage = ({uri, style = {}}: Props) => {
   const {opacityAnimation, fadeIn} = useAnimation();
   const [isLoading, setIsLoading] = useState(true);
+
   const finishLoading = () => {
     setIsLoading(false);
     fadeIn();
@@ -28,6 +29,7 @@ export const FadeInImage = ({uri, style = {}}: Props) => {
   const onError = (err: NativeSyntheticEvent<ImageErrorEventData>) => {
     setIsLoading(false);
   };
+
   return (
     <View>
       {isLoading && (

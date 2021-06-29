@@ -10,6 +10,7 @@ export const LoadingScreen = () => {
   useEffect(() => {
     checkLng();
   }, []);
+
   return (
     <Background>
       <View style={styles.loader}>
@@ -20,9 +21,6 @@ export const LoadingScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  loadingContainer: {
-    flex: 1,
-  },
   loader: {
     flex: 1,
     justifyContent: 'center',
