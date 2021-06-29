@@ -1,20 +1,18 @@
 import React, {useEffect, useContext} from 'react';
-import {View, StyleSheet, Alert, Dimensions} from 'react-native';
-import {Background} from './Background';
+import {View, StyleSheet, ActivityIndicator} from 'react-native';
 import {Logo} from './Logo';
-import {Controller, useForm} from 'react-hook-form';
+import {Controller} from 'react-hook-form';
 import {Input} from './Input';
 import {Btn} from './Btn';
-import {AuthContext} from '../context/auth/AuthContext';
-import {User} from '../interfaces/user';
 import {useLng} from '../hooks/useLng';
 import {useLogin} from '../hooks/useLogin';
+import {colors} from '../styles/colors';
 
 const EMAIL_REGEX =
   /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 export const LoginForm = () => {
-  const {control, handleSubmit, onSubmit, isValid} = useLogin();
+  const {control, handleSubmit, onSubmit, isValid, status} = useLogin();
   const {t} = useLng();
 
   return (
@@ -76,25 +74,25 @@ export const LoginForm = () => {
           />
         )}
       />
-      {/* <Controller
-          control={control}
-          name="date"
-          defaultValue=""
-          rules={{
-            required: true,
-          }}
-          render={({field: {onChange, value}}) => (
-            <Input
-              label={t('loginForm.date.label')}
-              placeholder={t('loginForm.date.placeholder')}
-              onChange={value => {
-                onChange(value);
-              }}
-              type="date"
-              value={value}
-            />
-          )}
-        /> */}
+      <Controller
+        control={control}
+        name="date"
+        defaultValue=""
+        rules={{
+          required: true,
+        }}
+        render={({field: {onChange, value}}) => (
+          <Input
+            label={t('loginForm.date.label')}
+            placeholder={t('loginForm.date.placeholder')}
+            onChange={value => {
+              onChange(value);
+            }}
+            type="date"
+            value={value}
+          />
+        )}
+      />
 
       <View style={styles.termsAndConditionsContainer}>
         <Controller
@@ -124,7 +122,8 @@ export const LoginForm = () => {
           disabled={!isValid}
           label={t('loginForm.btnLogin.label')}
           onPress={handleSubmit(onSubmit)}
-          background={true}
+          background={false}
+          textColor={colors.light}
         />
       </View>
     </View>

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, TextInput, Platform, StyleSheet, Text} from 'react-native';
 import {useState} from 'react';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import dayjs from 'dayjs';
-import RNDateTimePicker from '@react-native-community/datetimepicker';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import {colors} from '../styles/colors';
 import {FONT_FAMILY} from '../styles/GlobalStyles';
 
@@ -16,6 +16,8 @@ export interface Props {
   onChange: (value: string | Date | boolean | undefined) => void;
 }
 
+const INITIAL_DATE = new Date(2000, 0, 1);
+
 export const Input = ({
   label = '',
   placeholder,
@@ -25,19 +27,22 @@ export const Input = ({
   underLine,
 }: Props) => {
   const renderDateTimePicker = () => {
-    const [dateTime, setDateTime] = useState(new Date());
+    const [dateTime, setDateTime] = useState(INITIAL_DATE);
     const [show, setShow] = useState(Platform.OS === 'ios' ? true : false);
+    useEffect(() => {
+      onChange(new Date(INITIAL_DATE));
+    }, []);
 
     const onChangeDateTime = (event: any, selectedDate: any) => {
-      const currentDate = selectedDate || dateTime;
       setShow(Platform.OS === 'ios');
-      setDateTime(currentDate);
+      setDateTime(selectedDate);
+      onChange(selectedDate);
     };
     const showDatePicker = () => {
       setShow(true);
     };
     return (
-      <View>
+      <View class={styles.containerDatePicker}>
         <Text style={styles.title}>{label}</Text>
         {Platform.OS !== 'ios' && (
           <View>
@@ -49,16 +54,17 @@ export const Input = ({
         )}
         <View>
           {show && (
-            <RNDateTimePicker
+            <DateTimePicker
               testID="dateTimePicker"
               value={dateTime}
               mode="date"
               display="default"
               is24Hour={false}
-              maximumDate={new Date(2300, 10, 20)}
               dateFormat="day month year"
               onChange={onChangeDateTime}
               style={styles.datePicker}
+              themeVariant="light"
+              textColor={colors.light}
             />
           )}
         </View>
@@ -112,7 +118,7 @@ export const Input = ({
 
 const styles = StyleSheet.create({
   title: {
-    color: colors.light,
+    color: colors.secondary,
     fontSize: 30,
     marginTop: 20,
     fontFamily: FONT_FAMILY,
@@ -139,9 +145,11 @@ const styles = StyleSheet.create({
     height: 1,
     marginTop: 6,
   },
+  containerDatePicker: {},
   datePicker: {
-    width: 200,
-    backgroundColor: colors.light,
+    width: 350,
+    color: 'black',
+    backgroundColor: 'white',
     opacity: 0.2,
   },
 });

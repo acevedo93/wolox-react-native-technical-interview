@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import {useAnimation} from '../hooks/useAnimation';
 import {useState} from 'react';
+import {colors} from '../styles/colors';
 
 interface Props {
   uri: string | null;
@@ -31,8 +32,8 @@ export const FadeInImage = ({uri, style = {}}: Props) => {
     <View>
       {isLoading && (
         <ActivityIndicator
-          style={{position: 'absolute'}}
-          color="grey"
+          style={{flex: 1, alignContent: 'center'}}
+          color={colors.secondary}
           size={30}
         />
       )}

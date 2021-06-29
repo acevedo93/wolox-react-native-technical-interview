@@ -89,6 +89,9 @@
       "label": "Buscar Libros"
     }
   },
+  "added": {
+    "label": "Agregado"
+  },
   "btnLogout": {
     "label": "Salir"
   },

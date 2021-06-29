@@ -4,6 +4,7 @@ import {LoginForm} from '../../components/LoginForm';
 import {ScrollView, View, StyleSheet} from 'react-native';
 import {BtnTranslate} from '../../components/BtnTranslate';
 import {Background} from '../../components/Background';
+import {colors} from '../../styles/colors';
 
 export const LoginScreen = () => {
   return (
@@ -11,7 +12,7 @@ export const LoginScreen = () => {
       <ScrollView>
         <LoginForm />
         <View style={style.btnTranslate}>
-          <BtnTranslate background={true} />
+          <BtnTranslate background={false} textColor={colors.light} />
         </View>
       </ScrollView>
     </Background>

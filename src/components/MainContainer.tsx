@@ -12,7 +12,7 @@ export const MainContainer = ({children}: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 70,
+    paddingTop: 50,
     flex: 1,
     paddingHorizontal: 15,
   },

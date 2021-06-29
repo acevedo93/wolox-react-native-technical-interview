@@ -18,9 +18,7 @@ export const LoaderData = ({children, loading, error}: Props) => {
     </View>
   );
   const renderLoader = () => (
-    <View style={styles.loader}>
-      <ActivityIndicator size="large" color={colors.primary} />
-    </View>
+    <ActivityIndicator size="large" color={colors.secondary} />
   );
   return (
     <View>
@@ -32,7 +30,6 @@ export const LoaderData = ({children, loading, error}: Props) => {
 };
 
 const styles = StyleSheet.create({
-  loader: {},
   errorMsgContainer: {
     justifyContent: 'center',
     alignItems: 'center',

@@ -2,10 +2,12 @@ import {useForm} from 'react-hook-form';
 import {useContext, useEffect} from 'react';
 import {User} from '../interfaces/user';
 import {AuthContext} from '../context/auth/AuthContext';
-import {Alert} from 'react-native';
+import Snackbar from 'react-native-snackbar';
+import {colors} from '../styles/colors';
+import {FONT_FAMILY} from '../styles/GlobalStyles';
 
 export const useLogin = () => {
-  const {logIn, errorMsg, clearErrorMsg} = useContext(AuthContext);
+  const {logIn, errorMsg, clearErrorMsg, status} = useContext(AuthContext);
   const {
     control,
     handleSubmit,
@@ -15,12 +17,16 @@ export const useLogin = () => {
   });
   useEffect(() => {
     if (!errorMsg.length) return;
-    Alert.alert('Login error', errorMsg, [
-      {
-        text: 'OK',
-        onPress: clearErrorMsg,
+
+    Snackbar.show({
+      text: errorMsg,
+      duration: Snackbar.LENGTH_SHORT,
+      action: {
+        text: 'ok',
+        textColor: colors.secondary,
       },
-    ]);
+      fontFamily: FONT_FAMILY,
+    });
   }, [errorMsg]);
 
   const onSubmit = (data: User) => {
@@ -34,5 +40,7 @@ export const useLogin = () => {
     handleSubmit,
     onSubmit,
     isValid,
+    status,
+    errorMsg,
   };
 };

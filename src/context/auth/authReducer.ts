@@ -6,6 +6,7 @@ export interface AuthState {
 }
 
 type AuthAction =
+  | {type: 'LOADING'}
   | {type: 'LOG_IN'; payload: {user: User}}
   | {type: 'ERROR'; payload: string}
   | {type: 'LOG_OUT'}
@@ -22,6 +23,13 @@ export const authReducer = (
         status: 'authError',
         user: null,
       };
+    case 'LOADING':
+      return {
+        ...state,
+        status: 'loading',
+        errorMsg: '',
+      };
+
     case 'LOG_IN':
       return {
         ...state,

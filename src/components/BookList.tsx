@@ -25,6 +25,7 @@ export const BookList = ({books}: Props) => {
         {useNativeDriver: true},
       )}
       data={books}
+      refreshing={true}
       keyExtractor={book => book.id.toString()}
       renderItem={({item, index}) => {
         const inputRange = [

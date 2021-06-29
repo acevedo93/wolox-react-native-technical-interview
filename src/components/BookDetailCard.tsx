@@ -5,16 +5,34 @@ import {colors} from '../styles/colors';
 import {FadeInImage} from './FadeInImage';
 import {Btn} from './Btn';
 import {useLng} from '../hooks/useLng';
-import {globalStyles, BORDER_RADIUS} from '../styles/GlobalStyles';
+import {globalStyles, BORDER_RADIUS, FONT_FAMILY} from '../styles/GlobalStyles';
 import analytics from '@react-native-firebase/analytics';
+import Snackbar from 'react-native-snackbar';
 
 interface Props {
   book: IBook;
 }
 export const BookDetailCard = ({book}: Props) => {
   const {t} = useLng();
+
+  const showSnakBar = () => {
+    return Snackbar.show({
+      text: t('added.label'),
+      duration: Snackbar.LENGTH_SHORT,
+      action: {
+        text: 'ok',
+        textColor: colors.secondary,
+      },
+      fontFamily: FONT_FAMILY,
+    });
+  };
   return (
-    <View style={[globalStyles.verticalSpaces, styles.container]}>
+    <View
+      style={[
+        globalStyles.verticalSpaces,
+        styles.container,
+        globalStyles.shadow,
+      ]}>
       <View>
         <View style={[styles.topContainer, globalStyles.verticalSpaces]}>
           <FadeInImage uri={book.image_url} style={styles.imageStyle} />
@@ -29,18 +47,21 @@ export const BookDetailCard = ({book}: Props) => {
         <View style={[globalStyles.verticalSpaces, styles.btnsContainer]}>
           <Btn
             label={t('bookCardDetail.btns.addToWishList.label')}
-            onPress={async () =>
-              await analytics()
-                .logEvent('wishList', book)
-                .then(res => console.log(res))
-            }
+            onPress={async () => {
+              showSnakBar();
+              await analytics().logEvent('wishList', book);
+            }}
             style={{color: colors.primary, borderColor: colors.primary}}
           />
           <Btn
             label={t('bookCardDetail.btns.rent.label')}
-            onPress={async () => await analytics().logEvent('rent', book)}
+            onPress={async () => {
+              showSnakBar();
+              await analytics().logEvent('rent', book);
+            }}
             style={{color: colors.primary, borderColor: colors.primary}}
             background={true}
+            gradient={true}
           />
         </View>
       </View>
@@ -50,6 +71,7 @@ export const BookDetailCard = ({book}: Props) => {
 
 const styles = StyleSheet.create({
   container: {
+    marginHorizontal: 10,
     backgroundColor: colors.lightShade,
     borderRadius: BORDER_RADIUS,
     paddingHorizontal: 10,

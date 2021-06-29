@@ -17,7 +17,7 @@ export const CommentsCard = ({comments}: Props) => {
   const {t} = useLng();
   if (comments?.length) {
     return (
-      <View style={globalStyles.verticalSpaces}>
+      <View style={[globalStyles.verticalSpaces, globalStyles.shadow]}>
         <View style={globalStyles.verticalSpaces}>
           <Text style={globalStyles.title}>{t('comments.title.label')}</Text>
         </View>
@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
   comments: {
     backgroundColor: colors.lightShade,
     marginBottom: 10,
+    marginHorizontal: 10,
     borderRadius: BORDER_RADIUS,
     paddingHorizontal: 10,
     paddingVertical: 13,

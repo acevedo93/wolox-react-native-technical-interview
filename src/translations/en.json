@@ -94,6 +94,9 @@
       "label": "Search Books"
     }
   },
+  "added": {
+    "label": "Add"
+  },
   "errorSearch": {
     "label": "We do not find results for your search"
   }

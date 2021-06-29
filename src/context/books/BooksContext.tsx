@@ -1,9 +1,10 @@
 import React from 'react';
-import {createContext, useEffect, useState, useRef} from 'react';
+import {createContext, useEffect, useState, useContext} from 'react';
 import {IBook} from '../../interfaces/book';
 import booksApi from '../../api/api';
 import {IError} from '../../interfaces/error';
 import {useLng} from '../../hooks/useLng';
+import {AuthContext} from '../auth/AuthContext';
 
 type BooksContextProps = {
   books: IBook[] | undefined;
@@ -26,10 +27,13 @@ export const BooksProvider = ({children}: any) => {
   const [error, setError] = useState<IError>();
   const [search, setSearch] = useState<boolean>();
   const [filterBooks, setFilterBooks] = useState<IBook[]>([]);
-
+  const {status} = useContext(AuthContext);
   useEffect(() => {
-    getBooks();
-  }, []);
+    console.log(status);
+    if (status === 'authSuccess') {
+      getBooks();
+    }
+  }, [status]);
 
   const getBooks = async () => {
     setLoading(true);
@@ -40,7 +44,6 @@ export const BooksProvider = ({children}: any) => {
         setBooks(resp.data);
         setLoading(false);
       } catch (error) {
-        console.log(error);
         errorHandler(true, t('errorNetwork.label'));
         setLoading(false);
       }

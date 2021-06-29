@@ -35,13 +35,16 @@ export const AuthProvider = ({children}: any) => {
   };
 
   const logIn = async (userData: User) => {
-    try {
-      const {data} = await booksApi.post<User>('/sign_in', {...userData});
-      dispatch({type: 'LOG_IN', payload: {user: data}});
-      await AsyncStorage.setItem('user', JSON.stringify(data));
-    } catch (err) {
-      dispatch({type: 'ERROR', payload: 'Ocurrio un error inesperado'});
-    }
+    dispatch({type: 'LOADING'});
+    setTimeout(async () => {
+      try {
+        const {data} = await booksApi.post<User>('/sign_in', {...userData});
+        dispatch({type: 'LOG_IN', payload: {user: data}});
+        await AsyncStorage.setItem('user', JSON.stringify(data));
+      } catch (err) {
+        dispatch({type: 'ERROR', payload: 'Ocurrio un error inesperado'});
+      }
+    }, 2000);
   };
 
   const logOut = async () => {

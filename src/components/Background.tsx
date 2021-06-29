@@ -6,7 +6,9 @@ import LinearGradient from 'react-native-linear-gradient';
 export const Background = ({children}: any) => {
   return (
     <LinearGradient
-      colors={[colors.primary, colors.primaryShade, colors.primaryTint]}
+      start={{x: 0.0, y: 0.0}}
+      end={{x: 0.0, y: 1}}
+      colors={[colors.primary, colors.tertiaryShade, colors.tertiary]}
       style={styles.gradient}>
       {children}
     </LinearGradient>
