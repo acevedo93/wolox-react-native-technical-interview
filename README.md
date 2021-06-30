@@ -23,8 +23,8 @@ To initialize the project, the following commands must be executed:
 - npm run android
   as the database is localhost, use the ip of the machine instead of localhost, or with the android emulator open execute the command adb reverse tcp: 3000 tcp: 3000
 
+- pod install inside the ios folder
 - npm run ios
-  (if necessary, do pod install inside the ios folder)
 
 to run the tests npm run test
 
