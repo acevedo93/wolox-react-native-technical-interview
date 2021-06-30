@@ -26,6 +26,7 @@ export const Btn = ({
   if (gradient) {
     return (
       <TouchableOpacity
+        testID="btn-background"
         disabled={disabled}
         onPress={onPress}
         activeOpacity={0.8}
@@ -56,6 +57,7 @@ export const Btn = ({
 
   return (
     <TouchableOpacity
+      testID="btn-normal"
       disabled={disabled}
       onPress={onPress}
       activeOpacity={0.8}

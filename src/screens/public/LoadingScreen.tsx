@@ -13,7 +13,7 @@ export const LoadingScreen = () => {
 
   return (
     <Background>
-      <View style={styles.loader}>
+      <View testID="loader" style={styles.loader}>
         <ActivityIndicator size={50} color={colors.secondary} />
       </View>
     </Background>

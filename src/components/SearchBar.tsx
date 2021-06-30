@@ -15,18 +15,18 @@ export const SearchBar = () => {
 
   return (
     <View style={styles.container}>
-      <View>
+      <View testID="searchBar">
         <TextInput
           selectionColor={colors.light}
           style={styles.input}
           underlineColorAndroid="transparent"
-          placeholder={t('searchBar.placeholder.label')}
+          placeholder={'test'}
           placeholderTextColor={colors.mediumTint}
           autoCapitalize="none"
           onChangeText={value => searchBooks(value)}
         />
       </View>
-      <View style={styles.iconClose}>
+      <View testID="close-search-bar" style={styles.iconClose}>
         <TouchableOpacity onPress={() => handleSearch(false)}>
           <Icon name="close" color={colors.light} size={30} />
         </TouchableOpacity>

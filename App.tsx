@@ -7,11 +7,11 @@ import {TranslateProvider} from './src/translations/TranslateProvider';
 import {BooksProvider} from './src/context/books/BooksContext';
 
 const GlobalState = ({children}: {children: JSX.Element | JSX.Element[]}) => (
-  <TranslateProvider>
-    <AuthProvider>
+  <AuthProvider>
+    <TranslateProvider>
       <BooksProvider>{children}</BooksProvider>
-    </AuthProvider>
-  </TranslateProvider>
+    </TranslateProvider>
+  </AuthProvider>
 );
 
 export const App = () => {

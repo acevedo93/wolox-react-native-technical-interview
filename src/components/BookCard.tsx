@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  Dimensions,
-  Image,
-  Animated,
-} from 'react-native';
+import {View, Text, StyleSheet, Animated} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {FadeInImage} from './FadeInImage';
 import {IBook} from '../interfaces/book';

@@ -5,7 +5,7 @@ import {colors} from '../styles/colors';
 
 export const Waves = () => {
   return (
-    <View style={styles.svg}>
+    <View style={styles.svg} testID="waves">
       <Svg height="100" width="100%" style={styles.svg} viewBox="0 0 1440 320">
         <Path
           fill={colors.secondaryTint}

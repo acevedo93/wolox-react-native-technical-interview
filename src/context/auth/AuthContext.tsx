@@ -48,6 +48,7 @@ export const AuthProvider = ({children}: any) => {
   };
 
   const logOut = async () => {
+    console.log('entro');
     await AsyncStorage.removeItem('user');
     return dispatch({type: 'LOG_OUT'});
   };

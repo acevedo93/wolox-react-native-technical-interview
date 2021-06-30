@@ -13,10 +13,13 @@ import {Background} from '../../components/Background';
 export const ProfileScreen = () => {
   const {logOut} = useContext(AuthContext);
   const {t} = useLng();
+
   return (
     <MainContainer>
       <Waves />
-      <Text style={globalStyles.title}>Profile</Text>
+      <Text testID="profile-title" style={globalStyles.title}>
+        {t('profileScreen.headerTitle.label')}
+      </Text>
       <View style={globalStyles.verticalSpaces}>
         <BtnTranslate />
         <Btn
