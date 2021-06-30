@@ -1,7 +1,6 @@
 import React from 'react';
 import {render} from '@testing-library/react-native';
 import {SearchBar} from '../../src/components/SearchBar';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 
 let component: any;
 describe('<SearchBar />', () => {

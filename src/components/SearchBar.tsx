@@ -20,7 +20,7 @@ export const SearchBar = () => {
           selectionColor={colors.light}
           style={styles.input}
           underlineColorAndroid="transparent"
-          placeholder={'test'}
+          placeholder={t('searchBar.placeholder.label')}
           placeholderTextColor={colors.mediumTint}
           autoCapitalize="none"
           onChangeText={value => searchBooks(value)}

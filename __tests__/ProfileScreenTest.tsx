@@ -1,7 +1,6 @@
 import React from 'react';
 import {render, fireEvent, act, waitFor} from '@testing-library/react-native';
 import {ProfileScreen} from '../src/screens/private/ProfileScreen';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 let component: any;
 

@@ -1,33 +1,32 @@
 import React from 'react';
-import {createContext, useEffect, useState, useContext} from 'react';
+import {createContext, useEffect, useContext, useReducer} from 'react';
 import {IBook} from '../../interfaces/book';
 import booksApi from '../../api/api';
-import {IError} from '../../interfaces/error';
 import {useLng} from '../../hooks/useLng';
 import {AuthContext} from '../auth/AuthContext';
+import {BooksState, booksReducer} from './booksReducer';
 
-type BooksContextProps = {
-  books: IBook[] | undefined;
-  loading: boolean;
-  error: IError | undefined;
-  search: boolean | undefined;
-  filterBooks: IBook[] | [];
+interface BooksContextProps extends BooksState {
   handleSearch: (state: boolean) => void;
   getBooks: () => Promise<void>;
   getSuggestions: (genre: IBook) => IBook[];
   searchBooks: (search: string) => void;
+}
+
+const booksInitialState: BooksState = {
+  error: {status: false, msg: ''},
+  loading: false,
+  books: [],
+  filterBooks: [],
+  search: false,
 };
 
 export const BooksContext = createContext({} as BooksContextProps);
 
 export const BooksProvider = ({children}: any) => {
   const {t} = useLng();
-  const [books, setBooks] = useState<IBook[]>();
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<IError>();
-  const [search, setSearch] = useState<boolean>();
-  const [filterBooks, setFilterBooks] = useState<IBook[]>([]);
   const {status} = useContext(AuthContext);
+  const [state, dispatch] = useReducer(booksReducer, booksInitialState);
 
   useEffect(() => {
     if (status === 'authSuccess') {
@@ -36,22 +35,19 @@ export const BooksProvider = ({children}: any) => {
   }, [status]);
 
   const getBooks = async () => {
-    setLoading(true);
-    errorHandler(false);
+    dispatch({type: 'LOADING'});
     setTimeout(async () => {
       try {
         const resp = await booksApi.get<IBook[]>('/books');
-        setBooks(resp.data);
-        setLoading(false);
+        dispatch({type: 'REQUEST_BOOKS', payload: {books: resp.data}});
       } catch (error) {
         errorHandler(true, t('errorNetwork.label'));
-        setLoading(false);
       }
     }, 2000);
   };
 
   const getSuggestions = (bookSelected: IBook) => {
-    const suggestions = books?.filter(
+    const suggestions = state.books?.filter(
       book => book.genre === bookSelected.genre && book.id != bookSelected.id,
     );
     return suggestions?.length ? suggestions : [];
@@ -60,32 +56,33 @@ export const BooksProvider = ({children}: any) => {
   const searchBooks = (search: string) => {
     if (search.length && search.length > 1) {
       errorHandler(false);
-      const actualSearch = books?.filter(book =>
+      const actualSearch = state.books?.filter(book =>
         book.title.toLowerCase().includes(search.toLowerCase()),
       );
       if (actualSearch?.length) {
-        setFilterBooks(actualSearch);
+        dispatch({type: 'FILTER_BOOKS', payload: {books: actualSearch}});
       } else {
-        setFilterBooks([]);
+        dispatch({type: 'FILTER_BOOKS', payload: {books: []}});
         errorHandler(true, t('errorSearch.label'));
       }
     } else {
-      setFilterBooks([]);
-      errorHandler(false);
+      dispatch({type: 'FILTER_BOOKS', payload: {books: []}});
     }
   };
 
   const handleSearch = (state: boolean) => {
-    if (state) return setSearch(true);
-    setFilterBooks([]);
-    errorHandler(false);
-    return setSearch(false);
+    if (state) return dispatch({type: 'SEARCH', payload: {status: true}});
+    dispatch({type: 'SEARCH', payload: {status: false}});
+    dispatch({type: 'FILTER_BOOKS', payload: {books: []}});
   };
 
   const errorHandler = (status: boolean, msg: string = '') => {
-    setError({
-      status,
-      msg,
+    dispatch({
+      type: 'ERROR',
+      payload: {
+        status,
+        msg,
+      },
     });
   };
 
@@ -93,14 +90,10 @@ export const BooksProvider = ({children}: any) => {
     <BooksContext.Provider
       value={{
         getBooks,
-        books,
-        loading,
-        error,
         getSuggestions,
         searchBooks,
-        search,
         handleSearch,
-        filterBooks,
+        ...state,
       }}>
       {children}
     </BooksContext.Provider>
