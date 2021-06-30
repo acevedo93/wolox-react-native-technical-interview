@@ -7,17 +7,26 @@ Wolox's base project for the React Native's team technical interview
 Build an app to display a list of books retrieved from the mocked API.  
 You must follow the instructions that have been shared to you to solve the exercise.
 
-### Good luck!
+### Instructions
 
-## <a name="topic-about"></a> About
+This project was updated to the latest version of react-native with the help of the upgrade helper.
+https://react-native-community.github.io/upgrade-helper/
 
-This project is maintained and it was written by [Wolox](http://www.wolox.com.ar).
+In this project i used: Context (as state handler)
 
-![Wolox](https://raw.githubusercontent.com/Wolox/press-kit/master/logos/logo_banner.png)
+To initialize the project, the following commands must be executed:
 
-## <a name="topic-license"></a> License
+- npm install
 
-This project is available under the MIT [license](https://raw.githubusercontent.com/Wolox/wolmo-core-android/master/LICENSE.md).
+- json-server --watch db.json
+
+- npm run android
+  as the database is localhost, use the ip of the machine instead of localhost, or with the android emulator open execute the command adb reverse tcp: 3000 tcp: 3000
+
+- npm run ios
+  (if necessary, do pod install inside the ios folder)
+
+to run the tests npm run test
 
     Copyright (c) Wolox S.A
 
