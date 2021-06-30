@@ -9,8 +9,8 @@
       "placeholder": "Ingrese su Apellido"
     },
     "email": {
-      "label": "Correo electronico",
-      "placeholder": "Ingrese su correo electronico",
+      "label": "Correo electrónico",
+      "placeholder": "Ingrese su correo electrónico",
       "errorMsg": "Introduzca un correo electrónico válido"
     },
     "date": {
