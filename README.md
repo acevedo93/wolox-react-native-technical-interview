@@ -28,6 +28,9 @@ To initialize the project, the following commands must be executed:
 
 to run the tests npm run test
 
+fonts by google fonts
+-Montserrat
+
     Copyright (c) Wolox S.A
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
